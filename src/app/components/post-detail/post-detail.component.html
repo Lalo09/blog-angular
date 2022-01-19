@@ -1,0 +1,14 @@
+<div class="col-md-12" *ngIf=!post>
+    Loading...
+</div>
+
+<div class="col-md-12 mt-3" *ngIf=post>
+    <div class="jumbotron">
+        <h1 class="display-4">{{post.title}}</h1>
+        <p class="lead">
+            {{post.category.name}} by 
+            <a [routerLink]="['/profile',post.user.id]">{{post.user.name+' '+post.user.surname}}</a></p>
+        <hr class="my-4">
+        <p [innerHtml]="post.content"></p>
+      </div>
+</div>

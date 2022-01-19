@@ -1,0 +1,25 @@
+<div class="col-md-12 mt-4">
+    <h1>{{page_title}}</h1>
+    <p>Create a new category for the blog.</p>
+    <hr>
+    <!--Menssage from backend-->
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        Category saved successfully.
+    </div>
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        Error !!not registred successfully:(
+    </div>
+    <!--Form-->
+    <form class="col-md-5 ml-0 pl-0" #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
+
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="category.name" required>
+            <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">Invalid name</small>
+        </div>
+   
+        <input type="submit" value="Save" class="btn btn-success mt-3" [disabled]="categoryForm.invalid">
+        
+    </form>
+    <br>
+</div>
